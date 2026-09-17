@@ -1,0 +1,25 @@
+name: latch_swipe_confirm
+description: "A swipe-to-confirm button for Flutter: resistance at the start, a latch point, an async confirm with loading, success and failure states, and accessible alternatives to swiping."
+version: 1.0.0
+homepage: https://yagnikbarasiya23.github.io/latch_swipe_confirm/
+repository: https://github.com/YagnikBarasiya23/latch_swipe_confirm
+issue_tracker: https://github.com/YagnikBarasiya23/latch_swipe_confirm/issues
+topics: [button, swipe, confirm, animation, widget]
+screenshots:
+  - description: "Latch while dragging, loading, done and declined"
+    path: screenshots/latch.jpg
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
