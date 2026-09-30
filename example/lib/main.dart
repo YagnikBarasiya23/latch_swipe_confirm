@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:latch_swipe_confirm/latch_swipe_confirm.dart';
 
+import 'controls.dart';
+
 void main() => runApp(const LatchDemo());
 
 const _bg = Color(0xFF050505);
@@ -50,9 +52,10 @@ class _DemoPageState extends State<DemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 28, 20, 40),
+            padding: EdgeInsets.fromLTRB(20, 28, 20, 40 + MediaQuery.paddingOf(context).bottom),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 560),
               child: Column(
@@ -60,7 +63,12 @@ class _DemoPageState extends State<DemoPage> {
                 children: [
                   const Text(
                     'LATCH · FLUTTER',
-                    style: TextStyle(color: Color(0xFF71717A), letterSpacing: 3.5, fontSize: 12, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      color: Color(0xFF71717A),
+                      letterSpacing: 3.5,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   const Text(
@@ -96,12 +104,12 @@ class _DemoPageState extends State<DemoPage> {
                       const SizedBox(height: 14),
                       Row(
                         children: [
-                          Switch(value: _failNext, onChanged: (v) => setState(() => _failNext = v)),
-                          const SizedBox(width: 8),
+                          DemoSwitch(value: _failNext, onChanged: (v) => setState(() => _failNext = v)),
+                          const SizedBox(width: 10),
                           const Expanded(
                             child: Text('Make the card decline', style: TextStyle(color: _muted)),
                           ),
-                          TextButton(onPressed: () => setState(() => _round++), child: const Text('Reset')),
+                          PillButton(label: 'Reset', onPressed: () => setState(() => _round++)),
                         ],
                       ),
                     ],
@@ -154,9 +162,13 @@ class _DemoPageState extends State<DemoPage> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  const Text(
-                    'MIT © 2026 Yagnik Barasiya · github.com/YagnikBarasiya23/latch_swipe_confirm',
-                    style: TextStyle(color: _muted, fontSize: 13),
+                  const SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      'MIT © 2026 Yagnik Barasiya · github.com/YagnikBarasiya23/latch_swipe_confirm',
+                      style: TextStyle(color: _muted, fontSize: 13),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
